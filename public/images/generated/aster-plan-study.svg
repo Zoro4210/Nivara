@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">Aster House apartment plan study</title>
+  <desc id="desc">An original conceptual apartment floor plan showing bedrooms, living spaces, a courtyard and terrace.</desc>
+  <rect width="960" height="430" fill="#76685e"/>
+  <g fill="none" stroke="#eee8dd" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M170 82H785V352H170z" stroke-width="5"/>
+    <path d="M170 82h218v152H170M388 82v270M388 234H170M290 234v118M388 168h122M510 82v270M510 214h275M650 214v138"/>
+    <path d="M785 112h55v205h-55M840 112v205" opacity=".7"/>
+    <path d="M225 234v-18a18 18 0 0 1 18 18M388 132h18a18 18 0 0 1-18 18M510 160h18a18 18 0 0 1-18 18M510 270h18a18 18 0 0 1-18 18M650 250h18a18 18 0 0 1-18 18M290 285h18a18 18 0 0 1-18 18" stroke-width="1.5"/>
+    <rect x="192" y="110" width="150" height="78" rx="2"/>
+    <path d="M205 110v78M329 110v78M216 151h102" stroke-width="1.2"/>
+    <rect x="202" y="262" width="61" height="66"/>
+    <ellipse cx="232" cy="295" rx="18" ry="25"/>
+    <rect x="315" y="263" width="45" height="67"/>
+    <circle cx="337.5" cy="300" r="14"/>
+    <rect x="414" y="108" width="70" height="56"/>
+    <circle cx="449" cy="136" r="17"/>
+    <path d="M410 247h76M410 273h76M410 299h76M410 325h76" stroke-width="1.2"/>
+    <rect x="550" y="250" width="68" height="66"/>
+    <circle cx="571" cy="270" r="7"/><circle cx="597" cy="270" r="7"/><circle cx="571" cy="296" r="7"/><circle cx="597" cy="296" r="7"/>
+    <rect x="681" y="249" width="72" height="46"/>
+    <path d="M693 249v46M741 249v46" stroke-width="1.2"/>
+    <rect x="555" y="114" width="94" height="57" rx="2"/>
+    <path d="M566 114v57M638 114v57" stroke-width="1.2"/>
+    <rect x="686" y="105" width="57" height="72"/>
+    <path d="M696 105v72M733 105v72" stroke-width="1.2"/>
+    <path d="M138 82V352M126 82h24M126 352h24M170 50H785M170 39v22M785 39v22" stroke-width="1" opacity=".7"/>
+    <path d="M170 370v22M388 370v22M510 370v22M650 370v22M785 370v22" stroke-width="1" opacity=".55"/>
+    <path d="M170 381H785" stroke-width="1" opacity=".55"/>
+  </g>
+  <g fill="#eee8dd" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.4">
+    <text x="170" y="28">ASTER HOUSE / RESIDENCE 03</text>
+    <text x="720" y="28">PLAN STUDY · NTS</text>
+    <text x="229" y="204">PRIMARY SUITE</text>
+    <text x="203" y="344">BATH</text>
+    <text x="315" y="344">DRESS</text>
+    <text x="410" y="194">ENTRY COURT</text>
+    <text x="555" y="197">GUEST ROOM</text>
+    <text x="681" y="197">STUDY</text>
+    <text x="411" y="341">SERVICE</text>
+    <text x="550" y="341">KITCHEN</text>
+    <text x="682" y="341">LIVING</text>
+    <text x="802" y="105" transform="rotate(90 802 105)">PLANTED TERRACE</text>
+    <text x="103" y="240" transform="rotate(-90 103 240)">8 400</text>
+    <text x="456" y="45">18 600</text>
+    <text x="254" y="409">6 600</text>
+    <text x="431" y="409">3 700</text>
+    <text x="568" y="409">4 200</text>
+    <text x="701" y="409">4 100</text>
+  </g>
+</svg>
