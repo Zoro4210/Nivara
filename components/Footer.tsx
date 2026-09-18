@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { siteConfig } from "@/content/site-config";
+import { FooterVideo } from "@/components/FooterVideo";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-top">
-        <p className="eyebrow eyebrow--light">NIVĀRA Developments</p>
+        <FooterVideo />
         <p className="footer-statement">Places that<br />belong.</p>
       </div>
       <div className="footer-grid">

@@ -317,7 +317,11 @@ img { max-width: 100%; }
 
 /* Footer */
 .site-footer { background: var(--ink); color: white; padding: 80px clamp(20px,3.2vw,56px) 22px; }
-.footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 80px; }
+.footer-top { display: grid; grid-template-columns: minmax(300px,.82fr) minmax(0,1.18fr); gap: clamp(32px,5vw,88px); align-items: end; padding-bottom: 80px; }
+.footer-media { position: relative; aspect-ratio: 16 / 10; min-width: 0; overflow: hidden; background: #20211d url("/media/nivara-footer-poster.jpg") center / cover no-repeat; isolation: isolate; }
+.footer-media::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg,rgba(9,10,8,.35),transparent 42%,rgba(9,10,8,.2)); }
+.footer-media__video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.72) contrast(1.06) brightness(.82); }
+.footer-media__label { position: absolute; z-index: 2; top: 18px; left: 18px; margin: 0; }
 .footer-statement { margin: 0; text-align: right; font: 450 clamp(60px, 10vw, 170px)/.76 var(--display); letter-spacing: -.08em; }
 .footer-grid { border-top: 1px solid var(--light-line); display: grid; grid-template-columns: repeat(4,1fr); gap: 30px; padding: 30px 0 90px; }
 .footer-grid > div { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; font-size: 12px; }
@@ -484,7 +488,8 @@ img { max-width: 100%; }
   .journal-split__heading > div { display: block; }
   .journal-split__prompt { margin-top: 8px; }
   .viewing-grid { gap: 70px; }
-  .footer-top { flex-direction: column; gap: 80px; }
+  .footer-top { grid-template-columns: 1fr; gap: 64px; }
+  .footer-media { width: 100%; aspect-ratio: 16 / 10; }
   .footer-statement { text-align: left; }
   .footer-grid { grid-template-columns: 1fr 1fr; row-gap: 45px; }
   .footer-bottom { gap: 20px; flex-wrap: wrap; }
@@ -523,6 +528,10 @@ img { max-width: 100%; }
   .journal-split__stage, .journal-flip, .journal-flip__inner {
     will-change: transform, opacity;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-media__video { display: none; }
 }
 
 @media (min-width: 901px) {
