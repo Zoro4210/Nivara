@@ -309,6 +309,8 @@ img { max-width: 100%; }
 .form-note { margin: 0; max-width: 260px; font-size: 10px; opacity: .7; }
 .viewing-section .button--dark { background: var(--paper-bright); color: var(--ink); }
 .viewing-section .button--dark:hover { background: var(--ink); color: white; }
+.button--preparing, .button--preparing:hover, .viewing-section .button--preparing, .viewing-section .button--preparing:hover { min-width: 196px; justify-content: center; gap: 10px; background: var(--ink); color: white; cursor: wait; opacity: 1; }
+.button--preparing canvas { flex: 0 0 20px; }
 .form-success { min-height: 380px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; max-width: 640px; }
 .form-success__mark { width: 52px; aspect-ratio: 1; border: 1px solid currentColor; border-radius: 50%; display: grid; place-items: center; margin-bottom: 24px; }
 .form-success h3 { margin: 14px 0; font: 500 clamp(32px, 4vw, 58px)/.95 var(--display); letter-spacing: -.055em; }

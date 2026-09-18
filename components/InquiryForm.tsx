@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { ThinkingOrb } from "thinking-orbs";
 import type { InquiryFormValues } from "@/content/types";
 
 type Errors = Partial<Record<keyof InquiryFormValues, string>>;
@@ -8,10 +9,14 @@ type Errors = Partial<Record<keyof InquiryFormValues, string>>;
 export function InquiryForm({ formId = "inquiry", compact = false }: { formId?: string; compact?: boolean }) {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isPreparing, setIsPreparing] = useState(false);
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isPreparing) return;
+
+    const form = event.currentTarget;
     const data = new FormData(event.currentTarget);
     const values: InquiryFormValues = {
       name: String(data.get("name") ?? "").trim(),
@@ -31,8 +36,11 @@ export function InquiryForm({ formId = "inquiry", compact = false }: { formId?: 
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length === 0) {
+      setIsPreparing(true);
+      await new Promise((resolve) => window.setTimeout(resolve, 1700));
+      form.reset();
+      setIsPreparing(false);
       setSubmitted(true);
-      event.currentTarget.reset();
     }
   }
 
@@ -51,7 +59,7 @@ export function InquiryForm({ formId = "inquiry", compact = false }: { formId?: 
   const fieldId = (name: string) => `${formId}-${name}`;
 
   return (
-    <form className={`inquiry-form ${compact ? "inquiry-form--compact" : ""}`} onSubmit={handleSubmit} noValidate>
+    <form className={`inquiry-form ${compact ? "inquiry-form--compact" : ""}`} onSubmit={handleSubmit} aria-busy={isPreparing} noValidate>
       <div className="form-field">
         <label htmlFor={fieldId("name")}>Full name</label>
         <input id={fieldId("name")} name="name" autoComplete="name" aria-describedby={errors.name ? fieldId("name-error") : undefined} />
@@ -89,9 +97,18 @@ export function InquiryForm({ formId = "inquiry", compact = false }: { formId?: 
       </div>
       <div className="form-submit form-field--wide">
         <p className="form-note">Demo only. Your details will not be transmitted.</p>
-        <button className="button button--dark" type="submit">Prepare request</button>
+        <button className={`button button--dark ${isPreparing ? "button--preparing" : ""}`} type="submit" disabled={isPreparing}>
+          {isPreparing ? (
+            <>
+              <ThinkingOrb state="shaping" size={20} speed={1.05} theme="dark" aria-label="Preparing request" />
+              <span>Preparing request</span>
+            </>
+          ) : "Prepare request"}
+        </button>
       </div>
-      <div className="sr-only" aria-live="polite">{Object.keys(errors).length ? "Please correct the highlighted fields." : ""}</div>
+      <div className="sr-only" aria-live="polite">
+        {isPreparing ? "Preparing your viewing request." : Object.keys(errors).length ? "Please correct the highlighted fields." : ""}
+      </div>
     </form>
   );
 }
